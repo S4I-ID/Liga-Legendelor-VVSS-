@@ -2,6 +2,9 @@
 package inventory.model;
 
 
+/**
+ * Clasa care descrie o piesa produsa de o companie externa
+ */
 public class OutsourcedPart extends Part {
     
     // Declare fields
@@ -14,11 +17,21 @@ public class OutsourcedPart extends Part {
     }
     
     // Getter
+
+    /**
+     * Gets company name
+     * @return String
+     */
     public String getCompanyName() {
         return companyName;
     }
     
     // Setter
+
+    /**
+     * Sets company name
+     * @param companyName String
+     */
     public void setCompanyName(String companyName) {
         this.companyName = companyName;
     }

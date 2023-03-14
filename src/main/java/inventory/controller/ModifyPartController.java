@@ -22,6 +22,9 @@ import java.util.ResourceBundle;
 
 import static inventory.controller.MainScreenController.getModifyPartIndex;
 
+/**
+ * Controller pentru fereastra din UI in care se modifica piese
+ */
 
 public class ModifyPartController implements Initializable, Controller {
     

@@ -1,9 +1,14 @@
 
-package inventory.model;
+package inventory.repository;
 
+import inventory.model.Part;
+import inventory.model.Product;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+/**
+ * Clasa ce se ocupa de mentinerea pieselor si produselor in memorie
+ */
 public class Inventory {
     
     // Declare fields
@@ -12,6 +17,7 @@ public class Inventory {
     private int autoPartId;
     private int autoProductId;
 
+    // Constructor
     public Inventory(){
         this.products = FXCollections.observableArrayList();
         this.allParts= FXCollections.observableArrayList();
@@ -148,11 +154,18 @@ public class Inventory {
         return autoProductId;
     }
 
-
+    /**
+     * Sets id
+     * @param id
+     */
     public void setAutoPartId(int id){
         autoPartId=id;
     }
 
+    /**
+     * Gets id
+     * @param id
+     */
     public void setAutoProductId(int id){
         autoProductId=id;
     }

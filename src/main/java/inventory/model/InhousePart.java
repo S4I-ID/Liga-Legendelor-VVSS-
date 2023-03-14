@@ -1,5 +1,8 @@
 package inventory.model;
 
+/**
+ * Clasa care descrie o piesa produsa in cadrul companiei
+ */
 public class InhousePart extends Part {
 
     // Declare fields

@@ -2,6 +2,9 @@
 package inventory.model;
 
 
+/**
+ * Clasa abstracta ce descrie o piesa
+ */
 public abstract class Part {
 
     // Declare fields
@@ -23,51 +26,101 @@ public abstract class Part {
     }
     
     // Getters
+
+    /**
+     * gets part id
+     * @return int
+     */
     public int getPartId() {
         return partId;
     }
 
+    /**
+     * gets name
+     * @return String
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * gets price
+     * @return double
+     */
     public double getPrice() {
         return price;
     }
 
+    /**
+     * gets stock
+     * @return int
+     */
     public int getInStock() {
         return inStock;
     }
 
+    /**
+     * gets min
+     * @return int
+     */
     public int getMin() {
         return min;
     }
 
+    /**
+     * gets max
+     * @return int
+     */
     public int getMax() {
         return max;
     }
     
     // Setters
+
+    /**
+     * sets part id
+     * @param partId int
+     */
     public void setPartId(int partId) {
         this.partId = partId;
     }
 
+    /**
+     * sets name
+     * @param name String
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * sets price
+     * @param price double
+     */
     public void setPrice(double price) {
         this.price = price;
     }
 
+    /**
+     * sets stock
+     * @param inStock int
+     */
     public void setInStock(int inStock) {
         this.inStock = inStock;
     }
 
+    /**
+     * sets min
+     * @param min int
+     */
     public void setMin(int min) {
         this.min = min;
     }
 
+    /**
+     * sets max
+     * @param max int
+     */
     public void setMax(int max) {
         this.max = max;
     }

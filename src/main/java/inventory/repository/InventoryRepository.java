@@ -8,6 +8,9 @@ import javafx.collections.ObservableList;
 import java.io.*;
 import java.util.StringTokenizer;
 
+/**
+ * Clasa de repository pentru inventar, mentine fisierele cu date
+ */
 public class InventoryRepository {
 
     private static String filename = "data/items.txt";
@@ -19,6 +22,9 @@ public class InventoryRepository {
         readProducts();
     }
 
+    /**
+     * reads parts from file
+     */
     public void readParts() {
         //ClassLoader classLoader = InventoryRepository.class.getClassLoader();
         File file = new File(filename);
@@ -38,6 +44,11 @@ public class InventoryRepository {
         inventory.setAllParts(listP);
     }
 
+    /**
+     * searches part from string
+     * @param line String
+     * @return Part
+     */
     private Part getPartFromString(String line) {
         Part item = null;
         if (line == null || line.equals("")) return null;
@@ -68,6 +79,9 @@ public class InventoryRepository {
         return item;
     }
 
+    /**
+     * reads products from file
+     */
     public void readProducts() {
         //ClassLoader classLoader = InventoryRepository.class.getClassLoader();
         File file = new File(filename);
@@ -88,6 +102,11 @@ public class InventoryRepository {
         inventory.setProducts(listP);
     }
 
+    /**
+     * Gets product from string
+     * @param line String
+     * @return Product
+     */
     private Product getProductFromString(String line) {
         Product product = null;
         if (line == null || line.equals("")) return null;
@@ -117,6 +136,9 @@ public class InventoryRepository {
         return product;
     }
 
+    /**
+     * writes all to file
+     */
     public void writeAll() {
 
         //ClassLoader classLoader = InventoryRepository.class.getClassLoader();
@@ -150,50 +172,97 @@ public class InventoryRepository {
         }
     }
 
+    /**
+     * adds part
+     * @param part Part
+     */
     public void addPart(Part part) {
         inventory.addPart(part);
         writeAll();
     }
 
+    /**
+     * add product
+     * @param product Product
+     */
     public void addProduct(Product product) {
         inventory.addProduct(product);
         writeAll();
     }
 
+    /**
+     * get part id
+     * @return int
+     */
     public int getAutoPartId() {
         return inventory.getAutoPartId();
     }
 
+    /**
+     * get product id
+     */
     public int getAutoProductId() {
         return inventory.getAutoProductId();
     }
 
+    /**
+     * get all parts
+     * @return ObservableList(Part)
+     */
     public ObservableList<Part> getAllParts() {
         return inventory.getAllParts();
     }
 
+    /**
+     * Gets all products
+     * @return ObservableList(Product)
+     */
     public ObservableList<Product> getAllProducts() {
         return inventory.getProducts();
     }
 
+    /**
+     * Search part
+     * @param search String
+     * @return Part
+     */
     public Part lookupPart(String search) {
         return inventory.lookupPart(search);
     }
 
+    /**
+     * search product
+     * @param search String
+     * @return Product
+     */
     public Product lookupProduct(String search) {
         return inventory.lookupProduct(search);
     }
 
+    /**
+     * update part
+     * @param partIndex int
+     * @param part Part
+     */
     public void updatePart(int partIndex, Part part) {
         inventory.updatePart(partIndex, part);
         writeAll();
     }
 
+    /**
+     * update product
+     * @param productIndex int
+     * @param product Product
+     */
     public void updateProduct(int productIndex, Product product) {
         inventory.updateProduct(productIndex, product);
         writeAll();
     }
 
+    /**
+     * delete part
+     * @param part Part
+     */
     public void deletePart(Part part) {
         for (Product p : inventory.getProducts()) {
             if (p.getAssociatedParts().contains(part)) {
@@ -204,15 +273,27 @@ public class InventoryRepository {
         writeAll();
     }
 
+    /**
+     * Delete product
+     * @param product Product
+     */
     public void deleteProduct(Product product) {
         inventory.removeProduct(product);
         writeAll();
     }
 
+    /**
+     * Gets inventory
+     * @return Inventory
+     */
     public Inventory getInventory() {
         return inventory;
     }
 
+    /**
+     * Sets inventory
+     * @param inventory Inventory
+     */
     public void setInventory(Inventory inventory) {
         this.inventory = inventory;
     }

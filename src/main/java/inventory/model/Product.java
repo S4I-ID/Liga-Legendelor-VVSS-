@@ -5,6 +5,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 
+/**
+ * Clasa ce descrie un produs
+ */
 public class Product {
     
     // Declare fields
@@ -28,55 +31,109 @@ public class Product {
     }
     
     // Getters
+
+    /**
+     * gets associated parts
+     * @return ObservableList(Part)
+     */
     public ObservableList<Part> getAssociatedParts() {
         return associatedParts;
     }
 
+    /**
+     * gets id
+     * @return int
+     */
     public int getProductId() {
         return productId;
     }
 
+    /**
+     * gets name
+     * @return String
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * gets price
+     * @return double
+     */
     public double getPrice() {
         return price;
     }
 
+    /**
+     * gets in stock
+     * @return int
+     */
     public int getInStock() {
         return inStock;
     }
 
+    /**
+     * gets min
+     * @return min
+     */
     public int getMin() {
         return min;
     }
 
+    /**
+     * gets max
+     * @return int
+     */
     public int getMax() {
         return max;
     }
     
     // Setters
+
+    /**
+     * sets associated parts
+     * @param associatedParts ObservableList(Part)
+     */
     public void setAssociatedParts(ObservableList<Part> associatedParts) {
         // unsupported operation
     }
 
+    /**
+     * sets product id
+     * @param productId int
+     */
     public void setProductId(int productId) {
         this.productId = productId;
     }
 
+    /**
+     * Sets name
+     * @param name String
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * Sets price
+     * @param price double
+     */
     public void setPrice(double price) {
         this.price = price;
     }
 
+    /**
+     * sets in stock
+     * @param inStock int
+     */
     public void setInStock(int inStock) {
         this.inStock = inStock;
     }
 
+    /**
+     * sets min
+     * @param min int
+     */
     public void setMin(int min) {
         this.min = min;
     }
@@ -86,14 +143,28 @@ public class Product {
     }
     
     // Other methods
+
+    /**
+     * add associated part
+     * @param part Part
+     */
     public void addAssociatedPart(Part part) {
         associatedParts.add(part);
     }
-    
+
+    /**
+     * Removes associated part
+     * @param part Part
+     */
     public void removeAssociatedPart(Part part) {
         associatedParts.remove(part);
     }
-    
+
+    /**
+     * Search for associated part
+     * @param searchItem String
+     * @return Part
+     */
     public Part lookupAssociatedPart(String searchItem) {
         for(Part p:associatedParts) {
             if(p.getName().contains(searchItem) || Integer.toString(p.getPartId()).equals(searchItem)) return p;

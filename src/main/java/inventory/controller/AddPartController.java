@@ -17,6 +17,9 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+/**
+ * Controller pentru fereastra din UI care adauga partip
+ */
 public class AddPartController implements Initializable, Controller {
     
     // Declare fields

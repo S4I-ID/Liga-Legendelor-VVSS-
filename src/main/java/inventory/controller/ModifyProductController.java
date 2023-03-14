@@ -23,7 +23,9 @@ import java.util.ResourceBundle;
 
 import static inventory.controller.MainScreenController.getModifyProductIndex;
 
-
+/**
+ * Controller pentru fereastra din UI in care se modifica un produs
+ */
 public class ModifyProductController implements Initializable, Controller {
     
     // Declare fields

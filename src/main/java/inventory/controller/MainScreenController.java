@@ -22,6 +22,9 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 
+/**
+ * Controller pentru fereastra principala din UI
+ */
 public class MainScreenController implements Initializable,Controller {
     
      // Declare fields
