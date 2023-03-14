@@ -1,7 +1,10 @@
 package inventory.repository;
 
 
-import inventory.model.*;
+import inventory.model.InhousePart;
+import inventory.model.OutsourcedPart;
+import inventory.model.Part;
+import inventory.model.Product;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -16,7 +19,7 @@ public class InventoryRepository {
     private static String filename = "data/items.txt";
     private Inventory inventory;
 
-    public InventoryRepository() {
+    public InventoryRepository() throws IOException {
         this.inventory = new Inventory();
         readParts();
         readProducts();
@@ -25,21 +28,15 @@ public class InventoryRepository {
     /**
      * reads parts from file
      */
-    public void readParts() {
-        //ClassLoader classLoader = InventoryRepository.class.getClassLoader();
+    public void readParts() throws IOException {
         File file = new File(filename);
         ObservableList<Part> listP = FXCollections.observableArrayList();
-        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-            String line = null;
-            while ((line = br.readLine()) != null) {
-                Part part = getPartFromString(line);
-                if (part != null)
-                    listP.add(part);
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+        BufferedReader br = new BufferedReader(new FileReader(file));
+        String line = null;
+        while ((line = br.readLine()) != null) {
+            Part part = getPartFromString(line);
+            if (part != null)
+                listP.add(part);
         }
         inventory.setAllParts(listP);
     }
@@ -82,22 +79,16 @@ public class InventoryRepository {
     /**
      * reads products from file
      */
-    public void readProducts() {
-        //ClassLoader classLoader = InventoryRepository.class.getClassLoader();
+    public void readProducts() throws IOException {
         File file = new File(filename);
 
         ObservableList<Product> listP = FXCollections.observableArrayList();
-        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-            String line = null;
-            while ((line = br.readLine()) != null) {
-                Product product = getProductFromString(line);
-                if (product != null)
-                    listP.add(product);
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+        BufferedReader br = new BufferedReader(new FileReader(file));
+        String line = null;
+        while ((line = br.readLine()) != null) {
+            Product product = getProductFromString(line);
+            if (product != null)
+                listP.add(product);
         }
         inventory.setProducts(listP);
     }
@@ -141,7 +132,6 @@ public class InventoryRepository {
      */
     public void writeAll() {
 
-        //ClassLoader classLoader = InventoryRepository.class.getClassLoader();
         File file = new File(filename);
 
         ObservableList<Part> parts = inventory.getAllParts();
